@@ -26,6 +26,12 @@ interface ParsedSection {
   color: string
 }
 
+type ContentPart = {
+  type: 'text' | 'code'
+  content: string
+  language?: string
+}
+
 export const TopicModal: React.FC<TopicModalProps> = ({
   topic,
   description,
@@ -208,8 +214,8 @@ export const TopicModal: React.FC<TopicModalProps> = ({
     return sections
   }
 
-  const formatContent = (content: string) => {
-    const parts: Array<{type: 'text' | 'code', content: string, language?: string}> = []
+  const formatContent = (content: string): ContentPart[] => {
+    const parts: ContentPart[] = []
     
     // Extract code blocks
     const codeBlockRegex = /```(\w+)?\n([\s\S]*?)```/g
@@ -237,7 +243,8 @@ export const TopicModal: React.FC<TopicModalProps> = ({
       parts.push({ type: 'text', content: content.substring(lastIndex) })
     }
     
-    return parts.length > 0 ? parts : [{ type: 'text', content }]
+    const fallback: ContentPart = { type: 'text', content }
+    return parts.length > 0 ? parts : [fallback]
   }
 
   const getColorClasses = (color: string) => {

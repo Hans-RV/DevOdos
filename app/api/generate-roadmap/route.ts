@@ -13,7 +13,7 @@ function parseJsonSafely(text: string): any {
   } catch {}
 
   // Strategy 2: Extract JSON from markdown code blocks
-  const jsonMatch = text.match(/```(?:json)?\s*(\[.*?\])\s*```/s)
+  const jsonMatch = text.match(/```(?:json)?\s*(\[[\s\S]*?\])\s*```/)
   if (jsonMatch) {
     try {
       return JSON.parse(jsonMatch[1])
@@ -21,7 +21,7 @@ function parseJsonSafely(text: string): any {
   }
 
   // Strategy 3: Find array pattern
-  const arrayMatch = text.match(/\[\s*\{.*?\}\s*\]/s)
+  const arrayMatch = text.match(/\[\s*\{[\s\S]*?\}\s*\]/)
   if (arrayMatch) {
     try {
       let jsonStr = arrayMatch[0]
