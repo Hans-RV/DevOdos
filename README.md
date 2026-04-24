@@ -39,17 +39,6 @@ DevOdos solves this by combining guided roadmap generation, topic-level AI expla
 - Groq SDK (`llama-3.3-70b-versatile`) for roadmap and explanation generation
 - Google Auth Library for token verification
 
-### Document Export
-
-- jsPDF
-- html2canvas (available in dependencies)
-
-### Tooling
-
-- ESLint (Next.js config)
-- PostCSS + Tailwind
-- TypeScript strict mode
-
 ## How It Works
 
 1. User signs in with Google.
