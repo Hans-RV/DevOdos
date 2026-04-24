@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'DevOdos - Personalized Learning Roadmaps',
   description: 'Get a personalized roadmap tailored to your goals, experience level, and preferred programming language.',
   icons: {
-    icon: '/assets/favicon.svg',
+    icon: '/assets/favicon.png',
   },
 }
 
