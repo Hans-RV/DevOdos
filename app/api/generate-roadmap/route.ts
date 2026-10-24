@@ -178,7 +178,7 @@ Focus on ${goal} skills using ${language}.
 Make it practical and career-focused.`
 
     const response = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: process.env.GROQ_MODEL || 'openai/gpt-oss-120b',
       messages: [{ role: 'user', content: jsonPrompt }],
       temperature: 0.1,
       max_tokens: 3000,
@@ -212,7 +212,7 @@ Keep it concise and encouraging.`
     
     try {
       const textResponse = await groq.chat.completions.create({
-        model: 'llama-3.3-70b-versatile',
+        model: process.env.GROQ_MODEL || 'openai/gpt-oss-120b',
         messages: [{ role: 'user', content: textPrompt }],
         temperature: 0.5,
         max_tokens: 500,
