@@ -316,7 +316,8 @@ export default function LandingPage() {
               </div>
               <div className="text-center md:text-right">
                 <p className="text-slate-500 text-sm">© 2025 DevOdos. All rights reserved.</p>
-                <p className="text-slate-600 text-xs mt-1">Developed under GENVO LABS</p>
+                {/* TEMP-HIDDEN-GENVO: restore on 2026-11-05 */}
+                {/* <p className="text-slate-600 text-xs mt-1">Developed under GENVO LABS</p> */}
               </div>
             </div>
           </div>
