@@ -95,7 +95,7 @@ Make every section informative, specific, and actionable. Use technical terms ac
     console.log(`🔍 Explaining: ${topic}${context}`)
 
     const response = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: process.env.GROQ_MODEL || 'openai/gpt-oss-120b',
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.5,
       max_tokens: 4000,
